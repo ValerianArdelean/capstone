@@ -24,10 +24,6 @@ class Providers(db.Model):
     image_link = db.Column(db.String(700))
     events = db.relationship('Events',backref='providers')
 
-    def __repr__(self):
-        return f'{self.id} {self.name} {self.services_offered} {self.city} {self.adress}'\
-               f'{self.phone} {self.website} {self.social_media} {self.image_link} {self.events}'
-
     def insert(self):
       db.session.add(self)
       db.session.commit()
@@ -53,7 +49,7 @@ class Providers(db.Model):
         'website':self.website,
         'social_media':self.social_media,
         'image_link':self.image_link,
-        'events':self.events
+
       }
 
 '''IMPLEMENT EVENTS CLASS WITH ALOCATED FUNCTIONS'''
@@ -72,7 +68,6 @@ class Events(db.Model):
 
     def update(self):
       db.session.commit()
-      db.session.close
 
     def delete(self):
       db.session.delete(self)
@@ -89,7 +84,7 @@ class Events(db.Model):
         'date': self.date,
         'rating': self.rating,
         'customer_id':self.customer_id,
-        'provider_id':self.provider_id,
+        'provider_id':self.provider_id
       }
 
 '''IMPLEMENT CUSTOMERS CLASS WITH ALOCATED FUNCTIONS'''
@@ -127,5 +122,4 @@ class Customers(db.Model):
         'phone': self.phone,
         'social_media':self.social_media,
         'image_link':self.image_link,
-        'events':self.events
       }
