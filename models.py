@@ -1,3 +1,5 @@
+''' MODELS MODULE'''
+
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -8,6 +10,7 @@ def setup_db(app):
     db.app = app
 
 
+'''IMPLEMENT PROVIDERS CLASS WITH ALOCATED FUNCTIONS'''
 class Providers(db.Model):
     __tablename__ = 'providers'
     id = db.Column(db.Integer,primary_key=True)
@@ -18,8 +21,12 @@ class Providers(db.Model):
     phone = db.Column(db.String(30))
     website = db.Column(db.String(120))
     social_media = db.Column(db.String(500))
-    image_link = db.Column(db.String(500))
+    image_link = db.Column(db.String(700))
     events = db.relationship('Events',backref='providers')
+
+    def __repr__(self):
+        return f'{self.id} {self.name} {self.services_offered} {self.city} {self.adress}'\
+               f'{self.phone} {self.website} {self.social_media} {self.image_link} {self.events}'
 
     def insert(self):
       db.session.add(self)
@@ -31,6 +38,9 @@ class Providers(db.Model):
     def delete(self):
       db.session.delete(self)
       db.session.commit()
+
+    def sesion_close(self):
+        db.session.close()
 
     def format(self):
       return {
@@ -46,6 +56,7 @@ class Providers(db.Model):
         'events':self.events
       }
 
+'''IMPLEMENT EVENTS CLASS WITH ALOCATED FUNCTIONS'''
 class Events(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     event_name = db.Column(db.String())
@@ -61,10 +72,14 @@ class Events(db.Model):
 
     def update(self):
       db.session.commit()
+      db.session.close
 
     def delete(self):
       db.session.delete(self)
       db.session.commit()
+
+    def sesion_close(self):
+        db.session.close()
 
     def format(self):
       return {
@@ -77,6 +92,7 @@ class Events(db.Model):
         'provider_id':self.provider_id,
       }
 
+'''IMPLEMENT CUSTOMERS CLASS WITH ALOCATED FUNCTIONS'''
 class Customers(db.Model):
     __tablename__ = 'customers'
     id = db.Column(db.Integer,primary_key=True)
@@ -98,6 +114,9 @@ class Customers(db.Model):
     def delete(self):
       db.session.delete(self)
       db.session.commit()
+
+    def sesion_close(self):
+        db.session.close()
 
     def format(self):
       return {
