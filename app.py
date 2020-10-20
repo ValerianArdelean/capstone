@@ -6,15 +6,34 @@ from flask_cors import CORS
 import json
 '''import from models module'''
 from models import setup_db, Providers, Events, Customers, db
+'''import from auth module'''
+from auth import AuthError, requires_auth
+
+
 '''set up the app with Flask and data-base'''
 app = Flask(__name__)
 setup_db(app)
 db.init_app(app)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
+
+@app.after_request
+def after_request(response):
+    #response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers',
+                         'Content-Type, Authorization, true')
+    response.headers.add('Access-Control-Allow-Methods',
+                         'GET, PUT, POST, PATCH, DELETE, OPTIONS')
+    return response
+
 
 '''HOME ROUTE'''
 @app.route('/')
 def index():
-    return jsonify({'success':True})
+    AUTH0_AUTHORIZE_URL = "https://val1.eu.auth0.com/authorize?audience=image&response_type=token&client_id=86sK45Zcy75vaACB1EsJB12hFbUGBT68&redirect_uri=http://127.0.0.1:5000/login-results"
+    AUTH0_LOGOUT_URL = "https://val1.eu.auth0.com/v2/logout?client_id=86sK45Zcy75vaACB1EsJB12hFbUGBT68"
+    return render_template('index.html', AUTH0_AUTHORIZE_URL=AUTH0_AUTHORIZE_URL, AUTH0_LOGOUT_URL=AUTH0_LOGOUT_URL)
+
 
 '''IMPLEMENT PROVIDER(S) CLASS ROUTES'''
 '''get all providers'''
@@ -47,7 +66,8 @@ def providers_form_page():
 
     #second for the post implementation, for handle user imput
 @app.route('/providers', methods=['POST'])
-def post_providers():
+@requires_auth('post:providers')
+def post_providers(payload):
     response = {}
     #get and check the user imput
     body = request.get_json()
@@ -82,7 +102,8 @@ def post_providers():
 
 '''delete a provider'''
 @app.route('/providers/<int:id>', methods=['DELETE'])
-def delete_provider(id):
+@requires_auth('delete:providers')
+def delete_provider(payload, id):
     response = {}
     #get and check provider id and retrievment from db
     provider = Providers.query.get(id)
@@ -100,7 +121,8 @@ def delete_provider(id):
 
 '''edit a provider'''
 @app.route('/providers/<int:id>', methods=['PATCH'])
-def edit_provider(id):
+@requires_auth('edit:providers')
+def edit_provider(payload, id):
     response = {}
     #get and check the user imput data
     body = request.get_json()
@@ -140,8 +162,9 @@ def edit_provider(id):
     return jsonify(response)
 
 '''retrieve a single provider'''
-@app.route('/providers/<int:id>', methods=['GET'])
-def provider(id):
+@app.route('/providers/<int:id>', methods=['POST','GET'])
+@requires_auth('post:providers')
+def provider(payload, id):
     response = {}
     events = []
     #get and check provider retrieve from db
@@ -477,6 +500,9 @@ def event(id):
     #return response body
     response['success'] = True
     return jsonify(response)
+
+
+
 
 
 '''IMPLEMENT ERRORS HANDELERS ROUTES'''
