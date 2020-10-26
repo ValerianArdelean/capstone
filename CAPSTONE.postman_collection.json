@@ -1,0 +1,1780 @@
+{
+	"info": {
+		"_postman_id": "30620889-de51-4453-9785-6bcd23bf5ee5",
+		"name": "CAPSTONE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "/ 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0fff4a8-30a2-4f8e-a237-f6c3159dfca8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ 405",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1bc3ed1a-0731-4c6d-b57d-017362f85621",
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {",
+									"    pm.response.to.have.status(405);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af4fedd2-df45-4177-80b6-ef74f17661f8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79d1cae3-67a4-48ec-ad88-92173c3e973e",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/provider",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"provider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers SEARCH PROVIDER 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c9cba9b-7f70-4f0f-b3ca-6baef3f5bfe7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"searched_term\": \"ale\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers SEARCH PROVIDER 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3b06eae1-c140-424a-9b66-cda6f2f47447",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titlesearched_term\": \"matcha shake\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8398462f-4b75-4f88-aee3-a73111de2e1b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dac71c80-552c-4a1f-b1ea-0507730c8e9d",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42810ba2-ad00-4acf-9c95-db4c2e69f198",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/events",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers SEARCH CUSTOMER 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "11419edc-6334-49be-9941-6343ee1db88a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"searched_term\": \"ale\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers SEARCH CUSTOMER 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2c2483e6-bf41-4988-81f4-14c88ae26c9c",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titlesearched_term\": \"matcha shake\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "56f21a38-2f2b-4fd6-8667-46443babe2b0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "21dee369-7d91-419a-99e6-9fddca80546c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "providers",
+			"item": [
+				{
+					"name": "/providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72f8271f-65c0-49d1-81a4-8023876c3bdd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"services_offered\": \"TEST\",\n    \"city\":\"TESTING CITY\",\n    \"adress\":\"test adress\",\n    \"phone\":\"testphone\",\n    \"website\":\"test website\",\n    \"social_media\":\"test social\",\n    \"image_link\":\"image\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9b47ac2f-d41b-45a3-93e7-3effd40abf87",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"services_offered\": \"TEST\",\n    \"city\":\"TESTING CITY\",\n    \"adress\":\"test adress\",\n    \"phone\":\"testphone\",\n    \"website\":\"test website\",\n    \"social_media\":\"test social\",\n    \"image_link\":\"image\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/proviMISSSPEL",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"proviMISSSPEL"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b1f37ef-9bde-438f-a41a-bf1baf5a9887",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"services_offered\": \"TEST\",\n    \"city\":\"TESTING CITY\",\n    \"adress\":\"test adress\",\n    \"phone\":\"testphone\",\n    \"website\":\"test website\",\n    \"social_media\":\"test social\",\n    \"image_link\":\"image\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/providers?audience=image",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers"
+							],
+							"query": [
+								{
+									"key": "audience",
+									"value": "image"
+								}
+							]
+						},
+						"description": "RBAC test for providers"
+					},
+					"response": []
+				},
+				{
+					"name": "/providers/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73e88c1a-ef0d-4577-ad0f-e8c025a495ab",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/providers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers/id 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c21d1bf-66b8-4290-9613-db10911d553d",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/providers/2000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"2000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8016ed4b-5962-423f-afc4-09b91875f08a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"matcha shake\",\n    \"city\":\"patchTESTEDCITY\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/providers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "936e0e44-86e5-4c57-85f9-ad8ae26d8cf6",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"matcha shake\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/providers/2000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"2000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99b281fa-7a51-47e0-b62b-b23a5340d7d7",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/providers/404",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"404"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b43bf0b1-618e-45bb-a632-61b3359cc8bd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "41ea0046-e981-4278-98f7-808562da53dd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/providers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{providers_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5d5be02c-ee54-4871-b78b-b3dc349c1558",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c447b31f-3451-4609-b312-25b4a02674cf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "/customers 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ca00ce81-7f10-420f-9b09-34f1135be709",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"city\":\"TESTING CITY\",\n    \"adress\":\"test adress\",\n    \"phone\":\"testphone\",\n    \"social_media\":\"test social\",\n    \"image_link\":\"image\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customer 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8457b78c-0425-4495-b3d3-11b2fc4fdb2a",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"city\":\"TESTING CITY\",\n    \"adress\":\"test adress\",\n    \"phone\":\"testphone\",\n    \"social_media\":\"test social\",\n    \"image_link\":\"image\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customer"
+							]
+						},
+						"description": "RBAC test for providers"
+					},
+					"response": []
+				},
+				{
+					"name": "/customers 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f4bc08f5-1996-486a-9b26-002df9c4607b",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"city\":\"TESTING CITY\",\n    \"adress\":\"test adress\",\n    \"phone\":\"testphone\",\n    \"social_media\":\"test social\",\n    \"image_link\":\"image\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ba7a4b4-5b43-416a-a700-ac5a017e9379",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd85ce89-5528-4125-9ad9-57e4470e70db",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/providers/2000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers",
+								"2000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad026376-b083-459a-a42a-3898bb0b4721",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Deane\",\n    \"city\":\"Exe\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "658ac337-2575-48d8-a9ad-e42180f10ea1",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"nuuuuuu\",\n    \"city\":\"nuuuu\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers/300",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d158c3da-43df-4de7-a7df-fd8bddfad3a2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/customers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2bc1367-4c07-4bb6-92c9-2bcdc5efa368",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"website\": \"da\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/customers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63561d5d-486e-4a59-9b81-bb338d8876b7",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/404",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"404"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customers/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d4bc268-931d-4c35-839f-258e9552e6dd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ddfea21f-0feb-4dac-b284-8feabacd46e0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{customers_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a0726967-8a80-447b-be4b-fbd661bb4f46",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b944367-de92-4f43-90a9-eed804c85854",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "/events 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f4b4f33-82e0-4de8-9131-2cb14c5cffe6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_name\":\"photoshoot\",\n    \"event_type\":\"foto\",\n    \"date\": \"2020-03-04\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/events",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b622e4ed-1b90-431c-a8d8-927ed28a8861",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_name\":\"photoshoot\",\n    \"event_type\":\"foto\",\n    \"date\": \"2020-03-04\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/events",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c708c03-abf3-4bf4-98f0-42cbbf66f74d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/events/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "835c8396-0872-4638-b46b-4afd0f90444f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_name\": \"Deane\",\n    \"rating\":100\n}"
+						},
+						"url": {
+							"raw": "{{host}}/events/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events/id 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f7704cc8-48fa-431c-8476-2b4fba485e1f",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_name\": \"Deane\",\n    \"rating\":100\n}"
+						},
+						"url": {
+							"raw": "{{host}}/events/300",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events/id 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b79fd77b-68d8-4e46-a9c8-1b0977a5cf9d",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/events/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events/id 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be57d692-4e62-4c22-887a-c5afda27fd1c",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/events/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/events/id 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "469b718b-4e0a-4d89-a2e5-dfe3b9d24af9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3bc4b8d2-34a8-4596-a5d9-aa7eaac46246",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/events/{{id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{providers_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c32d5771-c746-4436-b180-df3db5d82b99",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c92f3507-20aa-427c-994c-700f6af86292",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "update id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7776c688-ac01-4ae1-acfb-b49b5505af25",
+						"exec": [
+							"var id = pm.environment.get(\"id\");",
+							"id++;",
+							"var id = pm.environment.set(\"id\", id);",
+							"console.log(pm.environment.get(\"id\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "753d1bb4-645b-4a7a-b34a-712914766509",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2c25edb5-8406-4628-9d3c-8351ebc728e4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "79eb2094-0911-49a5-aea3-b149df3c504f",
+			"key": "host",
+			"value": "http://127.0.0.1:5000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
