@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta>
+    <title>post a new customer</title>
+    <style>
+      * {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          -ms-box-sizing: border-box;
+          box-sizing: border-box;
+      }
+      .page {
+        width:86%;
+        margin: auto;
+        display: flex;
+      }
+      .row {
+        align-self:center;
+        margin: 0;
+        width:53%;
+      }
+      li {
+        list-style:none;
+      }
+      .head {
+        width:86%;
+        height:50px;
+        margin:auto;
+      }
+      p {
+        color:gray;
+      }
+      h3, a {
+        color:#333333;
+      }
+      .button {
+        border:none;
+        border-radius: 9px;
+        margin-top:20px;
+        margin-right:20px;
+        color:white;
+        font-size: 1.2rem;
+        background-color:#ffc63b;
+        cursor:pointer;
+        width:180px;
+        height:60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='head'>
+      <h4> <a href='/'>🎬</a>&nbsp &nbsp &nbsp<a href="/providers">Providers</a>&nbsp &nbsp &nbsp<a
+             href="/customers">Customers</a> &nbsp &nbsp &nbsp<a
+             href="/events">Events </a></h4>
+    </div>
+    <div class='page'>
+
+      <div class='row'>
+
+        <ul class="form-wrapper">
+          <h3 class="form-heading"> List a new customer </h3>
+          <form id='form'>
+            <li><label>Name</label>
+            <li><input id='name' type="text" name="name" value="">
+            <li><label>Area</label>
+            <li><input id='area' type="text" name="area" value="">
+            <li><label>Adress</label>
+            <li><input id='adress' type="text" name="adress" value="">
+            <li><label>Phone</label>
+            <li><input id='phone' type="text" name="phone" value="">
+            <li><label>social_media</label>
+            <li><input id='social_media' type="text"name="social_media"value="">
+            <li><label>image link</label>
+            <li><input id='image_link' type="text" name="image_link" value="">
+            <li><input class='button' type="submit">
+          </form>
+        </ul>
+
+      </div>
+    </div>
+    <div class='head'>
+      <p> <em>Powerd by Valerian Ardelean © 2020</em></p>
+    </div>
+    <script>
+      var a = document.getElementById('form');
+      a.onclick = function(e) {
+        e.preventDefault()
+        var name = document.getElementById('name')
+        var city = document.getElementById('area')
+        var adress = document.getElementById('adress')
+        var phone = document.getElementById('phone')
+        var social_media = document.getElementById('social_media')
+        var image_link = document.getElementById('image_link')
+        token = sessionStorage.getItem("token")
+        fetch('/customers', {
+          method : 'POST',
+          body : JSON.stringify({
+            'name': name.value,
+            'city': area.value,
+            'adress': adress.value,
+            'phone': phone.value,
+            'social_media': social_media.value,
+            'image_link': image_link.value,}),
+          headers : {"Authorization": "Bearer " + token, "Content-Type":"application/json"}
+        })
+        .then(respond => respond.json())
+        .then(jsonRespond => {
+          if (jsonRespond) {
+            window.location.href = jsonRespond.redirect
+          } else {
+            alert('bad request')
+          };
+        });
+      }
+    </script>
+  </body>
+</html>

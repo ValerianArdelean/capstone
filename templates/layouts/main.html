@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}{% endblock %}
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <link rel="shortcut icon" href="">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class='head'>
+      <h4> <a href='/'>🎬</a>&nbsp &nbsp &nbsp<a href="/providers">Providers</a>&nbsp &nbsp &nbsp<a
+             href="/customers">Customers</a> &nbsp &nbsp &nbsp<a
+             href="/events">Events </a>&nbsp &nbsp &nbsp </h4> <a href="{{login}}">login </a>
+             &nbsp &nbsp &nbsp <a id='logout' href="{{logout}}">logout</a>
+             <p id='logs'></p>
+    </div>
+    <div class='page'>
+      <div class='row'>
+      {% block row1 %}{% endblock %}
+        <a id='logs'> </a>
+        <h1>IMAGE SERVICE 🎬 </h1>
+        <div class='pro'>
+          {% block pro1 %}{% endblock %}
+        </div>
+        <div class='pro'>
+          {% block pro2 %}{% endblock %}
+        </div>
+      </div>
+      <div class='row'>
+        {% block row2 %}{% endblock %}
+      </div>
+    </div>
+    <div class='head'>
+      <p> <em>Powerd by Valerian Ardelean © 2020</em></p>
+    </div>
+        {% block script %}{% endblock %}
+  </body>
+</html>
