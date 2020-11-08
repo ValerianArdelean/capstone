@@ -28,7 +28,7 @@
 
           <script>
             var a = document.getElementById('post_provider');
-            a.onclick = function(e) {
+            a.onsubmit = function(e) {
               e.preventDefault();
               a = sessionStorage.getItem("token");
               fetch('/providers', {
@@ -48,7 +48,7 @@
           </script>
           <script>
             var a = document.getElementById('post_customer');
-            a.onclick = function(e) {
+            a.onsubmit = function(e) {
               e.preventDefault();
               a = sessionStorage.getItem("token");
               fetch('/customers', {
