@@ -76,6 +76,7 @@
             logs = document.getElementById('logs')
             token = sessionStorage.getItem("token");
             if (token) {
+              console.log(token);
               logs.innerHTML = 'Welcome, you are logged in !'
             } else {
               logs.innerHTML = 'Welcome guest !'
