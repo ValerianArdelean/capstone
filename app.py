@@ -54,10 +54,10 @@ def providers():
     response = {}
     cityes = []
     # get all the cityes
-    city = db.session.query(Providers.city).distinct().all()
+    city = db.session.query(Providers.city).distinct().order_by('id').all()
     for a in city:
         # for every city get all the providers
-        v = Providers.query.filter(Providers.city == a[0]).all()
+        v = Providers.query.filter(Providers.city == a[0]).order_by('id').all()
         # append those providers on a list
         providers = []
         for b in v:
@@ -256,7 +256,7 @@ def search_providers():
         searched_term = request.json['searched_term']
         response['searched_term'] = searched_term
         # retrieve the results from db and append them to a results list
-        res = Providers.query.filter(Providers.name.ilike(f'%{searched_term}%')).all()
+        res = Providers.query.filter(Providers.name.ilike(f'%{searched_term}%'))order_by('id').all()
         for a in res:
             count += 1
             results.append(a.format())
@@ -278,10 +278,10 @@ def customers():
     response = {}
     cityes = []
     # get all the cityes
-    city = db.session.query(Customers.city).distinct().all()
+    city = db.session.query(Customers.city).distinct().order_by('id').all()
     for a in city:
         # for every city get all the customers
-        v = Customers.query.filter(Customers.city == a[0]).all()
+        v = Customers.query.filter(Customers.city == a[0]).order_by('id').all()
         # append those providers on a list
         customers = []
         for b in v:
@@ -491,7 +491,7 @@ def search_customers():
 def events():
     response = {}
     # retrieve all the events from db
-    events = Events.query.all()
+    events = Events.query.all().order_by('id').all()
     response['events'] = [a.format() for a in events]
     # return response body
     response['success'] = True
