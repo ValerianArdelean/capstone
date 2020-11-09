@@ -8,6 +8,7 @@ import jwt
 import base64
 from models import setup_db, Providers, Events, Customers, db
 from auth import AuthError, requires_auth
+from jose import JWTError
 from functools import wraps
 
 
@@ -643,10 +644,10 @@ def bad_request(error):
         'success': False,
         'error': 401,
         'message': 'Unauthorized'
-    }), 400
+    }), 401
 
 @app.errorhandler(403)
-def bad_request(error):
+def forbiden(error):
     return jsonify({
         'success': False,
         'error': 403,
@@ -664,7 +665,7 @@ def not_found(error):
 
 
 @app.errorhandler(405)
-def not_found(error):
+def method_now_allowed(error):
     return jsonify({
         'success': False,
         'error': 405,
@@ -689,6 +690,13 @@ def server_error(error):
         'message': 'Server Error'
     }), 500
 
+@app.errorhandler(JWTError)
+def handle_auth_jwt_error(error):
+    return jsonify({
+        'success': False,
+        'error': 401,
+        'message': 'Unauthorized'
+    }), 401
 
 @app.errorhandler(AuthError)
 def handle_auth_error(ex):
