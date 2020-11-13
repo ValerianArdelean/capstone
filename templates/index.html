@@ -30,15 +30,14 @@
             var a = document.getElementById('post_provider');
             a.onsubmit = function(e) {
               e.preventDefault();
-              a = sessionStorage.getItem("token");
+              token = sessionStorage.getItem("token");
               fetch('/providers', {
                 method : 'PUT',
-                body : JSON.stringify({'token':token}),
                 headers : {"Authorization": "Bearer " + token, "Content-Type":"application/json"}
               })
               .then(respond => respond.json())
               .then(jsonRespond => {
-                if (jsonRespond.token) {
+                if (jsonRespond.success) {
                   window.location.href = jsonRespond.redirect;
                 } else {
                   alert('you not authorize');
@@ -50,15 +49,14 @@
             var a = document.getElementById('post_customer');
             a.onsubmit = function(e) {
               e.preventDefault();
-              a = sessionStorage.getItem("token");
+              token = sessionStorage.getItem("token");
               fetch('/customers', {
                 method : 'PUT',
-                body : JSON.stringify({'token':token}),
                 headers : {"Authorization": "Bearer " + token, "Content-Type":"application/json"}
               })
               .then(respond => respond.json())
               .then(jsonRespond => {
-                if (jsonRespond.token) {
+                if (jsonRespond.success) {
                   window.location.href = jsonRespond.redirect
                 } else {
                   alert('you not authorize')
