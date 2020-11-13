@@ -458,6 +458,102 @@
 			"name": "providers",
 			"item": [
 				{
+					"name": "/providers  PUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac015b40-93a4-4b0b-aaf4-7ec09f801915",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "JSON.stringify({'token': })",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/providers  PUT Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fa112f0e-4da6-407a-a01b-e86d3513c39f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/post_providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"post_providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/providers",
 					"event": [
 						{
@@ -864,6 +960,102 @@
 		{
 			"name": "customers",
 			"item": [
+				{
+					"name": "/customers 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ec30c223-c763-48a6-90e7-ac81b382e45a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "JSON.stringify({'token': })",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post_customers 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a004aed-e406-4bf8-9944-9e52f5f23ae4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/post_customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"post_customers"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "/customers 200",
 					"event": [
@@ -1771,7 +1963,7 @@
 	],
 	"variable": [
 		{
-			"id": "457178bd-9a52-4cc4-8589-aac32336fdff",
+			"id": "d825af6b-9671-4d6d-9f1f-1c8dc322ea5e",
 			"key": "host",
 			"value": "http://127.0.0.1:5000"
 		}
