@@ -54,8 +54,13 @@ Or you can carry on by hitting one of the POST buttons available in the home pag
 ### Getting Started
 * install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
 
-* Set up a virual enviornment.
-  Instruction can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+* Set up a virual enviornment.\
+  To do that follow [oficial instructions from python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+  or use these commands:
+  ```
+  $ python3 -m venv env
+  $ source env/bin/activate
+  ```
 
 * [Fork](https://github.com/ValerianArdelean/capstone) and and clone your forked repository to your machine.
   Work on the project locally and make sure to push all your changes to your remote repository
