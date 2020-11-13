@@ -71,29 +71,24 @@ def providers():
     return jsonify(response)
 
 
-'''post a new provider '''
-# here we need to implement 2 routes:
-# one for sending the user to page hosting the form
+'''post a provider '''
 
 
+# route to digest user click on POST button
 @app.route('/providers', methods=['PUT'])
 @requires_auth('post:providers')
 def providers_form_page(payload):
-    a = request.json['token']
-    token = base64.b64decode(str(a).split(".")[1]+"==")
-    return jsonify({'success': True,
-                    'token': str(token),
-                    'redirect': 'post_providers'})
+    # if token digest succed then redirect the user to post_providers.html form
+    return jsonify({'success': True, 'redirect': 'post_providers'})
 
 
+#second post route for returning the html page that host the form
 @app.route('/post_providers')
 def post_pro():
     return render_template('post_providers.html')
 
 
-# second for the post implementation, for handle user imput
-
-
+# third post route that handle user imput and insert it into db
 @app.route('/providers', methods=['POST'])
 @requires_auth('post:providers')
 def post_providers(payload):
@@ -296,26 +291,23 @@ def customers():
 
 
 '''post a new customer'''
-# here we need to implement 2 routes :
-# one for sending the user to page hosting the form
 
 
+# route to digest user click on POST button
 @app.route('/customers', methods=['PUT'])
 @requires_auth('post:customers')
 def customers_form_page(payload):
-    a = request.json['token']
-    token = base64.b64decode(str(a).split(".")[1]+"==")
-    return jsonify({'success': True,
-                    'token': str(token),
-                    'redirect': 'post_customers'})
+    # if token digest succed then redirect the user to post_customers.html form
+    return jsonify({'success': True, 'redirect': 'post_customers'})
 
 
+#second post route for returning the html page that host the form
 @app.route('/post_customers')
 def post_cus():
     return render_template('post_customers.html')
 
 
-# second for the post implementation for handle user imput
+# third post route for handle the user imput and insert into db
 @app.route('/customers', methods=['POST'])
 @requires_auth('post:customers')
 def post_customers(payload):
@@ -500,17 +492,9 @@ def events():
 
 
 '''post a new event'''
-# here we need to implement 2 routes :
-# one for sending the user to page hosting the form
 
 
-@app.route('/events', methods=['PUT'])
-@requires_auth('post:events')
-def events_form_page():
-    return jsonify({'message': 'here is route for the page hosting the form'})
-
-
-# second for the post implementation for handle user imput
+# the post events route implementation for handle the user imput and insert it into db
 @app.route('/events', methods=['POST'])
 @requires_auth('post:events')
 def post_eevnt(payload):
@@ -627,7 +611,7 @@ def event(id):
     return jsonify(response)
 
 
-'''IMPLEMENT ERRORS HANDELERS ROUTES'''
+'''IMPLEMENT ERRORS HANDELERS RESPONSES'''
 
 
 @app.errorhandler(400)
