@@ -35,7 +35,7 @@ def after_request(response):
 def index():
     a = 'https://val1.eu.auth0.com/authorize?audience=image&'
     b = 'response_type=token&client_id=86sK45Zcy75vaACB1EsJB12hFbUGBT68&'
-    c = 'redirect_uri=http://127.0.0.1:5000/'
+    c = 'redirect_uri=https://capstone-ardelean.herokuapp.com/'
     x = 'https://val1.eu.auth0.com/v2/logout?'
     y = 'client_id=86sK45Zcy75vaACB1EsJB12hFbUGBT68'
     return render_template('index.html', login=a+b+c, logout=x+y)
