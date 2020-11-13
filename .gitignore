@@ -2,5 +2,7 @@ __pycache__
 /__pycache__
 .DS_Store
 setup.sh
-migrations/
-/migrations
+env
+__pycache__
+.gitignore
+.DS_Store
