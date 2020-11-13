@@ -76,7 +76,7 @@ Or you can carry on by hitting one of the POST buttons available in the home pag
 * Run the development server:
   ```
   $ export FLASK_ENV=development # enables debug mode # create errors if test_config file runs with this evn. var. exported
-  $ "flask run" to run after installing dependences
+  $ flask run # to run after installing dependences
   ```
 * Navigate to Home page [http://localhost:5000](http://localhost:5000)\
   On this stage, home route can run with no errors, however, if you click on any resource links, app will fail, as no db system have been implemented. Follow the next section steps to implement a database system.
@@ -87,28 +87,28 @@ Or you can carry on by hitting one of the POST buttons available in the home pag
  **Please instal PostgreSQL and Psycopg2**\
 After succesfuly installation, make sure postgres server is up and running:
 ```
-pg_ctl -D /usr/local/var/postgres start
+$ pg_ctl -D /usr/local/var/postgres start
 ```
 * To create the database use the following command in CLI:
 ```
-createdb capstone-ardelean
+$ createdb capstone-ardelean
 ```
 * To reset the database, delete and create the data-base:
 ```
-dropdb && createdb capstone-ardelean
+$ dropdb && createdb capstone-ardelean
 ```
 * To create data-base tables, columns and relations you can use 2 options:
 
      1. Use dedicated migrations file: ```manage.py```
             * In CLI run the following command :
               ```
-              python3 manage.py db migrate
-              python3 manage.py db upgrade
+              $ python3 manage.py db migrate
+              $ python3 manage.py db upgrade
               ```
-  If any errors occur, you my consider one of the following 2 options: <p> First, delete the migrations folder, then initiate again: In CLI, prior above step run: ```python3 manage.py db init``` - this will initiate migrations folder.\
-  Or, you can use stamp head command. Same, prior the migrate comands above, in CLI run: ```python3 manage.py db stamp head```
+  If any errors occur, you my consider one of the following 2 options: <p> First, delete the migrations folder, then initiate again: In CLI, prior above step run: ```$ python3 manage.py db init``` - this will initiate migrations folder.\
+  Or, you can use stamp head command. Same, prior the migrate comands above, in CLI run: ```$ python3 manage.py db stamp head```
 
-  2. Use the restore data-base file provided. In CLI run: ```psql capstone-ardelean < capstone-test.sql``` \
+  2. Use the restore data-base file provided. In CLI run: ```$ psql capstone-ardelean < capstone-test.sql``` \
   This will create table tables and relations exacly like migrations run, but will also fill the db tables with some dummy data.
 
 
@@ -529,8 +529,8 @@ I am not aware of any another errors this app my have, but in case you get some,
        2. Unittest library tests use os env variables. Please make sure they are updated and id vars reflect db reality.
        To do so open the ```setup.sh``` file. Update ``provider_token`` and ``customer_token`` values.
        Also make sure all ``customer_id``, ``provider_id`` and ``event_id`` **have value set to 2**(or reflect correct db reality). Save and exit.
-       3. Open a new CLI tab or window and run the following command: ```source setup.sh```
-       4. Run the test using : ``` python3 test_config.py```.\
+       3. Open a new CLI tab or window and run the following command: ```$ source setup.sh```
+       4. Run the test using : ```$ python3 test_config.py```.\
        If all the steps above have been done successfully, should run with no fails or errors.
        If any errors occur, make sure id in setup.sh have the proper value, and you source it into your enviroment prior test run.
 
