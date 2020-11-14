@@ -1,8 +1,11 @@
 # Immage Service API
 
 ### Introduction
-Welcome to my final project for the Udacity's [Full Stack Web Developer Nanodegree course](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044).
+* Welcome to my final project for the Udacity's [Full Stack Web Developer Nanodegree course](https://www.udacity.com/course/full- stack-web-developer-nanodegree--nd0044).
 Image Service is meant to be a virtual place for where customers can meet providers in the imagery field industry, designated for private events like weddings, etc.
+
+* This web app is up and running on heroku platform.\
+  You can access it [here :](https://capstone-ardelean.herokuapp.com)
 
 ### Overview
  * The app is build using RESTful API's principles, serving three (main) resources: ```/providers```, ```/customers``` and ```/events```.
