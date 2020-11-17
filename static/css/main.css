@@ -14,9 +14,6 @@
   margin: 0;
   width:53%;
 }
-.photo {
-  max-width: 100%;
-}
 li {
   list-style:none;
 }
@@ -51,7 +48,10 @@ button {
 .btn1 {
   border-radius: 9px;
 }
-h1, a ,p {
+h3, h1, a ,p {
   color:#333333;
   font-style:none;
+}
+.photo {
+  max-width: 100%;
 }
