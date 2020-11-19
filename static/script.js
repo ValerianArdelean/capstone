@@ -2,6 +2,9 @@ a = window.location.href.split("=")[1];
 if (a) {
   var token = a.slice(0, -11);//slices exacly the token
   sessionStorage.setItem("token", token);
+  var base64 = token.replace('-', '+').replace('_', '/');
+  decodedData = JSON.parse(Buffer.from(base64, 'base64').toString('binary'));
+  console.log(decodedData)
 };
 
 var a = document.getElementById('post_provider');
