@@ -35,10 +35,19 @@ def after_request(response):
 def index():
     a = 'https://val1.eu.auth0.com/authorize?audience=image&'
     b = 'response_type=token&client_id=86sK45Zcy75vaACB1EsJB12hFbUGBT68&'
-    c = 'redirect_uri=https://capstone-ardelean.herokuapp.com/'
+    c = 'redirect_uri=https://capstone-ardelean.herokuapp.com/callback'
     x = 'https://val1.eu.auth0.com/v2/logout?'
     y = 'client_id=86sK45Zcy75vaACB1EsJB12hFbUGBT68'
     return render_template('index.html', login=a+b+c, logout=x+y)
+
+
+@app.route('/callback')
+@requires_auth('edit:events')
+def callback(payload):
+    try:
+        return redirect(url_for('index'))
+    except error as BaseException:
+        return jsonify({'message': 'please confirm your email'})
 
 
 @app.route('/logout')
